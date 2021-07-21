@@ -54,14 +54,15 @@ export const MenuScreen = ({
       };
 
       const camStyle = {
-        display: delay ? "flex" : "none",
+        display: "flex",
         justifyContent: "center",
       };
 
       return (
         <div style={camStyle}>
           <QrReader
-            delay={delay ? 300 : false}
+            delay={delay ? 1500 : false}
+            showViewFinder={delay ? true : false}
             onError={this.handleError}
             onScan={this.handleScan}
             style={previewStyle}
@@ -111,7 +112,14 @@ export const MenuScreen = ({
   return (
     <>
       <Row gutter={16} style={{ alignItems: "center" }}>
-        <Col span={3} style={{ paddingTop: "2em", paddingBottom: "2em" }}>
+        <Col
+          span={3}
+          style={{
+            paddingTop: "2em",
+            paddingBottom: "1em",
+            marginLeft: "0.2em",
+          }}
+        >
           <LeftCircleOutlined
             onClick={() => {
               setPositionSelected("");
