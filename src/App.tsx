@@ -13,7 +13,6 @@ const { Header, Content } = Layout;
 function App() {
   const [centerSelected, setCenterSelected] = useState("");
   const [positionSelected, setPositionSelected] = useState("");
-  const [menuSuperiorData, setMenuSuperiorData] = useState("");
 
   // useEffect(() => {
   //   // Actualiza el título del documento usando la API del navegador
@@ -24,7 +23,7 @@ function App() {
         <Header
           style={{ display: "grid", backgroundColor: "#ee3a43", height: "10%" }}
         >
-          <HeaderSuperior menuSuperiorData={menuSuperiorData} />
+          <HeaderSuperior />
         </Header>
         <Content style={{ padding: "0 50px", height: "90%" }}>
           <div>
@@ -46,7 +45,6 @@ function App() {
               <div>
                 <MenuScreen
                   positionSelected={positionSelected}
-                  setMenuSuperiorData={setMenuSuperiorData}
                   setPositionSelected={setPositionSelected}
                 />
                 <div style={{ padding: "2em" }} />

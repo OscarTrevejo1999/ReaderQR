@@ -6,11 +6,9 @@ import { useRecoilValue } from "recoil";
 import { menuAtom } from "../recoil/atoms";
 
 const { Title } = Typography;
-interface MenuHeaderProps {
-  menuSuperiorData: any;
-}
 
-export const HeaderSuperior = ({ menuSuperiorData }: MenuHeaderProps) => {
+
+export const HeaderSuperior = () => {
   const menuAtomData = useRecoilValue(menuAtom);
 
   return (

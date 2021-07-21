@@ -1,7 +1,7 @@
 import {
   CameraFilled,
   LeftCircleOutlined,
-  ReloadOutlined,
+  ReloadOutlined
 } from "@ant-design/icons";
 import { Col, Row, Typography } from "antd";
 // import axios from "axios";
@@ -15,13 +15,11 @@ const { Title } = Typography;
 
 interface MenuScreenProps {
   setPositionSelected: any;
-  setMenuSuperiorData: any;
   positionSelected: any;
 }
 
 export const MenuScreen = ({
   setPositionSelected,
-  setMenuSuperiorData,
   positionSelected,
 }: MenuScreenProps) => {
   const [menuAtomData, setMenuAtomData] = useRecoilState(menuAtom);
