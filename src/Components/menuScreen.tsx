@@ -1,4 +1,8 @@
-import { LeftCircleOutlined } from "@ant-design/icons";
+import {
+  CameraFilled,
+  LeftCircleOutlined,
+  ReloadOutlined,
+} from "@ant-design/icons";
 import { Col, Row, Typography } from "antd";
 // import axios from "axios";
 import React, { Component, useEffect, useState } from "react";
@@ -23,6 +27,7 @@ export const MenuScreen = ({
   const [menuAtomData, setMenuAtomData] = useRecoilState(menuAtom);
   const [qrReadData, setQrReadData] = useRecoilState(qrRead);
   const [delay, setDelay] = useState(true);
+  const [changeCamera, setChangeCamera] = useState(true);
 
   class QrContainer extends Component {
     constructor(props: any) {
@@ -60,7 +65,7 @@ export const MenuScreen = ({
             onError={this.handleError}
             onScan={this.handleScan}
             style={previewStyle}
-            facingMode="user"
+            facingMode={changeCamera ? "user" : "environment"}
           />
         </div>
       );
@@ -121,6 +126,26 @@ export const MenuScreen = ({
               });
             }}
             style={{ fontSize: "5em", color: "grey" }}
+          />
+          <CameraFilled
+            onClick={() => {
+              setChangeCamera(!changeCamera);
+            }}
+            style={{ fontSize: "5em", color: "grey", marginLeft: "0.2em" }}
+          />
+          <ReloadOutlined
+            onClick={() => {
+              setDelay(true);
+              setQrReadData("");
+              setMenuAtomData({
+                menu: "",
+                id: "",
+                hc: "",
+                date: "",
+                extra: [{}],
+              });
+            }}
+            style={{ fontSize: "5em", color: "grey", marginLeft: "0.2em" }}
           />
         </Col>
         <Col span={24}>
