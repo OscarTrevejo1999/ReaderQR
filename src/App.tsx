@@ -22,11 +22,11 @@ function App() {
     <div className="App">
       <Layout className="layout">
         <Header
-          style={{ display: "grid", backgroundColor: "#ee3a43", height: "10vh" }}
+          style={{ display: "grid", backgroundColor: "#ee3a43", height: "10%" }}
         >
           <HeaderSuperior menuSuperiorData={menuSuperiorData} />
         </Header>
-        <Content style={{ padding: "0 50px", height: "90vh" }}>
+        <Content style={{ padding: "0 50px", height: "90%" }}>
           <div>
             {centerSelected === "" ? (
               <CenterSelector

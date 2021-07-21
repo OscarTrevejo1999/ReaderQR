@@ -29,9 +29,12 @@ export const MenuScreen = ({
     }
 
     handleScan = (data: any) => {
-      if (data) {
+      console.log(data);
+
+      if (data !== null) {
         setMenuAtomData(JSON.parse(data));
         console.log(data);
+        console.log(JSON.parse(data));
       }
     };
     handleError = (err: any) => {
@@ -42,7 +45,7 @@ export const MenuScreen = ({
         height: 350,
         width: 500,
         display: "flex",
-        "justify-content": "center",
+        justifyContent: "center",
       };
 
       const camStyle = {
@@ -58,6 +61,7 @@ export const MenuScreen = ({
             onError={this.handleError}
             onScan={this.handleScan}
             style={previewStyle}
+            facingMode="user"
           />
           {/* <p style={textStyle}>{state}</p> */}
         </div>
@@ -65,25 +69,25 @@ export const MenuScreen = ({
     }
   }
 
-  // const QrPrueba = [
-  //   {
-  //     menu: "Pure de Calabacín",
-  //     id: "2",
-  //     hc: "223291",
-  //     date: "28/04/2021 - Comida",
-  //     extra: [
-  //       {
-  //         title: "Otros platos",
-  //         description: "Estofado de ternera con verduras",
-  //       },
-  //       {
-  //         title: "Alergias y observaciones",
-  //         description: "No pescado",
-  //       },
-  //     ],
-  //   },
-  // ];
-  // console.log(JSON.stringify(QrPrueba));
+  const QrPrueba = [
+    {
+      menu: "Pure de Calabacín",
+      id: "2",
+      hc: "223291",
+      date: "28/04/2021 - Comida",
+      extra: [
+        {
+          title: "Otros platos",
+          description: "Estofado de ternera con verduras",
+        },
+        {
+          title: "Alergias y observaciones",
+          description: "No pescado",
+        },
+      ],
+    },
+  ];
+  console.log(JSON.stringify(QrPrueba));
 
   useEffect(() => {}, [menuAtomData]);
   return (
