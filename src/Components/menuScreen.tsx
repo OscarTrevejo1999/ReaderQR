@@ -24,35 +24,42 @@ export const MenuScreen = ({
   class QrContainer extends Component {
     constructor(props: any) {
       super(props);
-      this.state = {
-        delay: 500,
-        result: "No result",
-      };
 
       this.handleScan = this.handleScan.bind(this);
     }
-    handleScan(result: any) {
-      if (result) {
-        this.setState({ result });
+
+    handleScan = (data: any) => {
+      if (data) {
+        setMenuAtomData(JSON.parse(data));
+        console.log(data);
       }
-    }
-    handleError(err: any) {
+    };
+    handleError = (err: any) => {
       console.error(err);
-    }
+    };
     render() {
       const previewStyle = {
-        height: 240,
-        width: 320,
+        height: 350,
+        width: 500,
+        display: "flex",
+        "justify-content": "center",
+      };
+
+      const camStyle = {
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "-50px",
       };
 
       return (
-        <div>
+        <div style={camStyle}>
           <QrReader
-            delay={500}
-            style={previewStyle}
+            delay={300}
             onError={this.handleError}
             onScan={this.handleScan}
+            style={previewStyle}
           />
+          {/* <p style={textStyle}>{state}</p> */}
         </div>
       );
     }
