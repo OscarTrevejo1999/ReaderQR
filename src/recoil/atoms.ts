@@ -7,6 +7,11 @@ export const menuAtom = atom({
     id: "",
     hc: "",
     date: "",
-    extra:[{}]
+    extra: [{}],
   }, // default value (aka initial value)
+});
+
+export const qrRead = atom({
+  key: "qrRead", // unique ID (with respect to other atoms/selectors)
+  default: "", // default value (aka initial value)
 });
