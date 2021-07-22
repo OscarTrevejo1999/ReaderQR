@@ -33,8 +33,10 @@ export const CenterSelector = ({ data }: CenterSelectorProps) => {
   return (
     <Row gutter={16} style={{ alignItems: "center" }}>
       <Col span={3} />
-      <Col span={18} style={{ paddingTop: "2em", paddingBottom: "2em" }}>
-        <Title level={1}>Selecciona un centro</Title>
+      <Col span={18} style={{ paddingTop: "1em", paddingBottom: "0.5em" }}>
+        <Title level={1} style={{ padding: "0px", margin: "0px",paddingTop:"0.2em" }}>
+          Selecciona un centro
+        </Title>
       </Col>
       {cardCenter}
       <Col span={3} />

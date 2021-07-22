@@ -42,14 +42,19 @@ export const PositionSelector = ({ data }: PositionSelectorProps) => {
 
   return (
     <Row gutter={16} style={{ alignItems: "center" }}>
-      <Col span={3} style={{ paddingTop: "2em", paddingBottom: "2em" }}>
+      <Col span={3} style={{ paddingTop: "1em", paddingBottom: "0.5em" }}>
         <LeftCircleOutlined
           onClick={() => setCenterSelectedData("")}
           style={{ fontSize: "5em", color: "grey" }}
         />
       </Col>
-      <Col span={18} style={{ paddingTop: "2em", paddingBottom: "2em" }}>
-        <Title level={1}>Selecciona una posición</Title>
+      <Col span={18}>
+        <Title
+          level={1}
+          style={{ padding: "0px", margin: "0px", paddingTop: "0.2em" }}
+        >
+          Selecciona una posición
+        </Title>
       </Col>
       <Col span={3} />
       {cardPosition}

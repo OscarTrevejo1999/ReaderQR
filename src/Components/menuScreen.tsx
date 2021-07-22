@@ -21,57 +21,77 @@ export const MenuScreen = () => {
   const [delay, setDelay] = useState(true);
   const [changeCamera, setChangeCamera] = useState(true);
 
+  const handleBack = () => {
+    setDelay(true);
+    setQrReadData("");
+    setMenuAtomData({
+      menu: "",
+      id: "",
+      hc: "",
+      date: "",
+      extra: [{}],
+    });
+  };
+
   return (
     <>
       <Row gutter={16} style={{ alignItems: "center" }}>
-        <Col
-          style={{
-            paddingTop: "2em",
-            paddingBottom: "1em",
-            marginLeft: "0.2em",
-          }}
-        >
-          <LeftCircleOutlined
-            onClick={() => {
-              setPositionSelectedData("");
-              setDelay(true);
-              setQrReadData("");
-              setMenuAtomData({
-                menu: "",
-                id: "",
-                hc: "",
-                date: "",
-                extra: [{}],
-              });
+        <Col span={24} style={{ display: "contents" }}>
+          <Col
+            span={8}
+            style={{
+              paddingTop: "1em",
+              paddingBottom: "0.5em",
+              textAlignLast: "left",
             }}
-            style={{ fontSize: "5em", color: "grey" }}
-          />
-          <CameraFilled
-            onClick={() => {
-              setChangeCamera(!changeCamera);
+          >
+            <LeftCircleOutlined
+              onClick={() => {
+                handleBack();
+                setPositionSelectedData("");
+              }}
+              style={{ fontSize: "5em", color: "grey", marginLeft: "0.5em" }}
+            />
+          </Col>
+          <Col
+            span={8}
+            style={{
+              paddingTop: "1em",
+              paddingBottom: "0.5em",
+              textAlignLast: "center",
             }}
-            style={{ fontSize: "5em", color: "grey", marginLeft: "0.2em" }}
-          />
-          <ReloadOutlined
-            onClick={() => {
-              setDelay(true);
-              setQrReadData("");
-              setMenuAtomData({
-                menu: "",
-                id: "",
-                hc: "",
-                date: "",
-                extra: [{}],
-              });
+          >
+            <CameraFilled
+              onClick={() => {
+                setChangeCamera(!changeCamera);
+              }}
+              style={{ fontSize: "5em", color: "grey" }}
+            />
+          </Col>
+          <Col
+            span={8}
+            style={{
+              paddingTop: "1em",
+              paddingBottom: "0.5em",
+              textAlignLast: "right",
             }}
-            style={{ fontSize: "5em", color: "grey", marginLeft: "0.2em" }}
+          >
+            <ReloadOutlined
+              onClick={() => {
+                handleBack();
+              }}
+              style={{ fontSize: "5em", color: "grey", marginRight: "0.5em" }}
+            />
+          </Col>
+        </Col>
+        <Col span={24} style={{ paddingTop: "2em" }}>
+          <QrReaderCustom
+            changeCamera={changeCamera}
+            setDelay={setDelay}
+            delay={delay}
           />
         </Col>
-        <QrReaderCustom
-          changeCamera={changeCamera}
-          setDelay={setDelay}
-          delay={delay}
-        />
+
         <Col span={24} style={{ paddingTop: delay ? "13em" : "1em" }}>
           {qrReadData !== "" && (
             <Title level={1} style={{ color: "grey" }}>

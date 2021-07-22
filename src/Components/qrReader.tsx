@@ -1,9 +1,9 @@
 import { Col } from "antd";
 // import axios from "axios";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import QrReader from "react-qr-reader";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { menuAtom, qrCode } from "../recoil/atoms";
+import { useSetRecoilState } from "recoil";
+import { menuAtom } from "../recoil/atoms";
 
 interface QrReaderProps {
   changeCamera: any;
@@ -48,8 +48,8 @@ export const QrReaderCustom = ({
     };
     render() {
       const previewStyle = {
-        height: 350,
-        width: 500,
+        height: 400,
+        width: 400,
         display: "flex",
         justifyContent: "center",
       };

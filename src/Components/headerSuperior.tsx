@@ -12,15 +12,15 @@ export const HeaderSuperior = () => {
   const positionSelectedData = useRecoilValue(positionSelected);
   return (
     <Row style={{ alignItems: "center" }}>
-      <Col span={4}>
-        <img src={logo} alt="Logo" style={{ width: "12em" }} />
+      <Col span={6}>
+        <img src={logo} alt="Logo" style={{ width: "11em" }} />
       </Col>
-      <Col span={5}>
+      <Col span={4}>
         <Title style={{ color: "white" }} level={4}>
           {positionSelectedData}
         </Title>
       </Col>
-      <Col span={5}>
+      <Col span={3}>
         <Title style={{ color: "white" }} level={4}>
           {menuAtomData.id}
         </Title>
@@ -30,7 +30,7 @@ export const HeaderSuperior = () => {
           {menuAtomData.hc !== "" ? " HC:" + menuAtomData.hc : ""}
         </Title>
       </Col>
-      <Col span={5}>
+      <Col span={6}>
         <Title style={{ color: "white" }} level={4}>
           {menuAtomData.date}
         </Title>
