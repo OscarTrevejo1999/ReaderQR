@@ -11,7 +11,15 @@ export const menuAtom = atom({
   }, // default value (aka initial value)
 });
 
-export const qrRead = atom({
-  key: "qrRead", // unique ID (with respect to other atoms/selectors)
+export const qrCode = atom({
+  key: "qrCode", // unique ID (with respect to other atoms/selectors)
+  default: "", // default value (aka initial value)
+});
+export const centerSelected = atom({
+  key: "centerSelected", // unique ID (with respect to other atoms/selectors)
+  default: "", // default value (aka initial value)
+});
+export const positionSelected = atom({
+  key: "positionSelected", // unique ID (with respect to other atoms/selectors)
   default: "", // default value (aka initial value)
 });

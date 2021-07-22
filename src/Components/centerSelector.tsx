@@ -1,20 +1,15 @@
 import { Card, Col, Row, Typography } from "antd";
 import React from "react";
+import { useSetRecoilState } from "recoil";
+import { centerSelected } from "../recoil/atoms";
 
 const { Title } = Typography;
 interface CenterSelectorProps {
-  setCenterSelected: any;
-  centerSelected: string;
   data: any;
 }
 
-export const CenterSelector = ({
-  setCenterSelected,
-  centerSelected,
-  data,
-}: CenterSelectorProps) => {
-  console.log(centerSelected);
-
+export const CenterSelector = ({ data }: CenterSelectorProps) => {
+  const setCenterSelectedData = useSetRecoilState(centerSelected);
   const cardCenter = data?.map((center: any) => (
     <Col span={12} key={center.idCenter} style={{ padding: "1em" }}>
       <p style={{ fontSize: "1.5em", height: "7em" }}>
@@ -27,7 +22,7 @@ export const CenterSelector = ({
           }}
           title={center.center}
           bordered={false}
-          onClick={() => setCenterSelected(center.idCenter)}
+          onClick={() => setCenterSelectedData(center.idCenter)}
         >
           {center.description}
         </Card>

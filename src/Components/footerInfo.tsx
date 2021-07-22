@@ -8,15 +8,15 @@ interface FooterInfoProps {
 export const FooterInfo = ({ data }: FooterInfoProps) => {
   const dataFooter = data.map((item: any) => {
     return (
-      <Col span={6}>
-        <Card title={item.title} style={{ width: 300 }}>
+      <Col span={6} key={item?.description + item?.title}>
+        <Card title={item.title}>
           <p>{item.description}</p>
         </Card>
       </Col>
     );
   });
   return (
-    <Row style={{ justifyContent: "center", alignItems: "center" }}>
+    <Row style={{ justifyContent: "center", alignItems: "center" }} gutter={16}>
       {dataFooter}
     </Row>
   );
