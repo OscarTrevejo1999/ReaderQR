@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/ReaderQR/static/css/main.571a6691.chunk.css",
-    "main.js": "/ReaderQR/static/js/main.df352d06.chunk.js",
-    "main.js.map": "/ReaderQR/static/js/main.df352d06.chunk.js.map",
-    "runtime-main.js": "/ReaderQR/static/js/runtime-main.856ca82f.js",
-    "runtime-main.js.map": "/ReaderQR/static/js/runtime-main.856ca82f.js.map",
+    "main.css": "/ReaderQR/static/css/main.29f61ee0.chunk.css",
+    "main.js": "/ReaderQR/static/js/main.aafc44f6.chunk.js",
+    "main.js.map": "/ReaderQR/static/js/main.aafc44f6.chunk.js.map",
+    "runtime-main.js": "/ReaderQR/static/js/runtime-main.c2f72d2c.js",
+    "runtime-main.js.map": "/ReaderQR/static/js/runtime-main.c2f72d2c.js.map",
     "static/css/2.7572b43f.chunk.css": "/ReaderQR/static/css/2.7572b43f.chunk.css",
-    "static/js/2.49806032.chunk.js": "/ReaderQR/static/js/2.49806032.chunk.js",
-    "static/js/2.49806032.chunk.js.map": "/ReaderQR/static/js/2.49806032.chunk.js.map",
-    "static/js/3.aa0ec272.chunk.js": "/ReaderQR/static/js/3.aa0ec272.chunk.js",
-    "static/js/3.aa0ec272.chunk.js.map": "/ReaderQR/static/js/3.aa0ec272.chunk.js.map",
+    "static/js/2.15ed1cd1.chunk.js": "/ReaderQR/static/js/2.15ed1cd1.chunk.js",
+    "static/js/2.15ed1cd1.chunk.js.map": "/ReaderQR/static/js/2.15ed1cd1.chunk.js.map",
+    "static/js/3.7f2ac9b3.chunk.js": "/ReaderQR/static/js/3.7f2ac9b3.chunk.js",
+    "static/js/3.7f2ac9b3.chunk.js.map": "/ReaderQR/static/js/3.7f2ac9b3.chunk.js.map",
     "index.html": "/ReaderQR/index.html",
     "static/css/2.7572b43f.chunk.css.map": "/ReaderQR/static/css/2.7572b43f.chunk.css.map",
-    "static/css/main.571a6691.chunk.css.map": "/ReaderQR/static/css/main.571a6691.chunk.css.map",
-    "static/js/2.49806032.chunk.js.LICENSE.txt": "/ReaderQR/static/js/2.49806032.chunk.js.LICENSE.txt",
+    "static/css/main.29f61ee0.chunk.css.map": "/ReaderQR/static/css/main.29f61ee0.chunk.css.map",
+    "static/js/2.15ed1cd1.chunk.js.LICENSE.txt": "/ReaderQR/static/js/2.15ed1cd1.chunk.js.LICENSE.txt",
     "static/media/Aramark_logo.bf37d627.png": "/ReaderQR/static/media/Aramark_logo.bf37d627.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.856ca82f.js",
+    "static/js/runtime-main.c2f72d2c.js",
     "static/css/2.7572b43f.chunk.css",
-    "static/js/2.49806032.chunk.js",
-    "static/css/main.571a6691.chunk.css",
-    "static/js/main.df352d06.chunk.js"
+    "static/js/2.15ed1cd1.chunk.js",
+    "static/css/main.29f61ee0.chunk.css",
+    "static/js/main.aafc44f6.chunk.js"
   ]
 }
