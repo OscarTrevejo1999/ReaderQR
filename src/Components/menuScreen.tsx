@@ -35,7 +35,16 @@ export const MenuScreen = () => {
 
   return (
     <>
-      <Row gutter={16} style={{ alignItems: "center" }}>
+      <Row
+        gutter={8}
+        justify="space-around"
+        align="middle"
+        style={{
+          margin: "1em",
+          backgroundColor: "#d9d9d9",
+          borderRadius: "2em",
+        }}
+      >
         <Col span={24} style={{ display: "contents" }}>
           <Col
             span={8}
@@ -50,7 +59,7 @@ export const MenuScreen = () => {
                 handleBack();
                 setPositionSelectedData("");
               }}
-              style={{ fontSize: "5em", color: "grey", marginLeft: "0.5em" }}
+              style={{ fontSize: "4.5em", color: "grey", marginLeft: "0.5em" }}
             />
           </Col>
           <Col
@@ -65,7 +74,7 @@ export const MenuScreen = () => {
               onClick={() => {
                 setChangeCamera(!changeCamera);
               }}
-              style={{ fontSize: "5em", color: "grey" }}
+              style={{ fontSize: "4.5em", color: "grey" }}
             />
           </Col>
           <Col
@@ -80,10 +89,12 @@ export const MenuScreen = () => {
               onClick={() => {
                 handleBack();
               }}
-              style={{ fontSize: "5em", color: "grey", marginRight: "0.5em" }}
+              style={{ fontSize: "4.5em", color: "grey", marginRight: "0.5em" }}
             />
           </Col>
         </Col>
+      </Row>
+      <Row gutter={8} justify="space-around" align="middle">
         <Col span={24} style={{ paddingTop: "2em" }}>
           <QrReaderCustom
             changeCamera={changeCamera}

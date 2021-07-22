@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import React from "react";
-import { Typography } from "antd";
+import { Typography, Image } from "antd";
 import logo from "./../Aramark_logo.png";
 import { useRecoilValue } from "recoil";
 import { menuAtom, positionSelected } from "../recoil/atoms";
@@ -11,9 +11,9 @@ export const HeaderSuperior = () => {
   const menuAtomData = useRecoilValue(menuAtom);
   const positionSelectedData = useRecoilValue(positionSelected);
   return (
-    <Row style={{ alignItems: "center" }}>
-      <Col span={6}>
-        <img src={logo} alt="Logo" style={{ width: "11em" }} />
+    <Row gutter={8} justify="space-around" align="middle" >
+      <Col span={6} style={{ display: "inherit" }}>
+        <Image preview={false} width={"12em"} src={logo} alt="Logo" />
       </Col>
       <Col span={4}>
         <Title style={{ color: "white" }} level={4}>

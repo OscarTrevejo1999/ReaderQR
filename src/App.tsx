@@ -27,13 +27,11 @@ function App() {
           style={{
             display: "grid",
             backgroundColor: "#ee3a43",
-            height: "10%",
-            minHeight: "10%",
           }}
         >
           <HeaderSuperior />
         </Header>
-        <Content style={{ height: "90%", minHeight: "90%", maxHeight: "90%" }}>
+        <Content style={{ backgroundColor: "#f5f5f5" }}>
           <>
             {centerSelectedData === "" ? (
               <CenterSelector data={data} />

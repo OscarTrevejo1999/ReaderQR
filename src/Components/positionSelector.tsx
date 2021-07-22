@@ -20,45 +20,60 @@ export const PositionSelector = ({ data }: PositionSelectorProps) => {
 
   const cardPosition = filterPositions[0]?.posiciones?.map((position: any) => {
     return (
-      <Col span={12} key={position.idPosition} style={{ padding: "1em" }}>
-        <p style={{ fontSize: "1.5em", height: "7em" }}>
+      <Col span={12} key={position.idPosition} style={{ padding: "0.3em" }}>
+        <div style={{ fontSize: "1.5em", margin: "0px" }}>
           <Card
             style={{
+              margin: "0px",
               cursor: "pointer",
               fontSize: "1.2em",
-              height: "7em",
               marginTop: "1em",
+              textOverflow: "ellipsis",
             }}
             title={position.position}
-            bordered={false}
+            bordered
+            hoverable
             onClick={() => setPositionSelectedData(position.position)}
           >
             {position.description}
           </Card>
-        </p>
+        </div>
       </Col>
     );
   });
 
   return (
-    <Row gutter={16} style={{ alignItems: "center" }}>
-      <Col span={3} style={{ paddingTop: "1em", paddingBottom: "0.5em" }}>
-        <LeftCircleOutlined
-          onClick={() => setCenterSelectedData("")}
-          style={{ fontSize: "5em", color: "grey" }}
-        />
-      </Col>
-      <Col span={18}>
-        <Title
-          level={1}
-          style={{ padding: "0px", margin: "0px", paddingTop: "0.2em" }}
-        >
-          Selecciona una posición
-        </Title>
-      </Col>
-      <Col span={3} />
-      {cardPosition}
-    </Row>
+    <>
+      <Row
+        gutter={8}
+        justify="space-around"
+        align="middle"
+        style={{
+          margin: "1em",
+          backgroundColor: "#d9d9d9",
+          borderRadius: "2em",
+        }}
+      >
+        <Col span={3} style={{ paddingTop: "1em", paddingBottom: "0.5em" }}>
+          <LeftCircleOutlined
+            onClick={() => setCenterSelectedData("")}
+            style={{ fontSize: "4.5em", color: "grey" }}
+          />
+        </Col>
+        <Col span={18}>
+          <Title
+            level={1}
+            style={{ padding: "0px", margin: "0px", paddingTop: "0.2em" }}
+          >
+            Selecciona una posición
+          </Title>
+        </Col>
+        <Col span={3} />
+      </Row>
+      <Row gutter={8} justify="space-around" align="middle">
+        {cardPosition}
+      </Row>
+    </>
   );
 };
 export default PositionSelector;
