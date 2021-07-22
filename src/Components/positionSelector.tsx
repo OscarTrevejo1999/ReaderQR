@@ -1,5 +1,6 @@
-import { LeftCircleOutlined } from "@ant-design/icons";
+import { HeartOutlined, LeftCircleOutlined } from "@ant-design/icons";
 import { Card, Col, Row, Typography } from "antd";
+import Meta from "antd/lib/card/Meta";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { positionSelected } from "../recoil/atoms";
 import { centerSelected } from "./../recoil/atoms";
@@ -30,7 +31,16 @@ export const PositionSelector = ({ data }: PositionSelectorProps) => {
               marginTop: "1em",
               textOverflow: "ellipsis",
             }}
-            title={position.position}
+            title={
+              position.position === "Dietista" ? (
+                <>
+                  {position.position}
+                  <HeartOutlined style={{ paddingLeft: "1em" }} />
+                </>
+              ) : (
+                position.position
+              )
+            }
             bordered
             hoverable
             onClick={() => setPositionSelectedData(position.position)}
