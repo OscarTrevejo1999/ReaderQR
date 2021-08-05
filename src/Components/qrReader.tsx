@@ -1,102 +1,122 @@
-import { Col } from "antd";
 // import axios from "axios";
+import { message } from "antd";
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
-import { useSetRecoilState } from "recoil";
-import { menuAtom } from "../recoil/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { menu, menuSoapCall, token, user } from "../recoil/atoms";
+import { SoapCallGetMenu, SoapCallLogin } from "./soapCalls";
+import xmlData from "./xml_data";
 
-interface QrReaderProps {
-  changeCamera: any;
-  setDelay: any;
-  delay: boolean;
-}
+var parseString = require("xml2js").parseString;
 
-export const QrReaderCustom = ({
-  changeCamera,
-  setDelay,
-  delay,
-}: QrReaderProps) => {
-  const setMenuAtomData = useSetRecoilState(menuAtom);
-
+export const QrReaderCustom = () => {
+  const [userData, setUserData] = useRecoilState(user);
+  const setMenuData = useSetRecoilState(menu);
+  const [menuDataSoap, setMenuDataSoap] = useRecoilState(menuSoapCall);
+  const informationSplit = userData.split("|");
+  const menuDataSplit = userData.split("|");
+  const tokenData = useRecoilValue(token);
   class QrContainer extends Component {
     constructor(props: any) {
       super(props);
       this.handleScan = this.handleScan.bind(this);
     }
 
-    getMenu = async (id: any) => {
-      setMenuAtomData(QrPrueba);
-      // const res = await axios
-      //   .get(`https://60f821159cdca0001745522a.mockapi.io`)
-      //   .then((data) => data)
-      //   .catch((error) => error);
-      // if (res.status === 200) {
-      //   setMenuAtomData(res.data);
-      // } else {
-      // setMenuAtomData(QrPrueba);
-      // }
+    errorUser = () => {
+      message.error({
+        content: "Debes logearte como usuario antes de poder leer un menú",
+        style: {
+          fontSize: "3em",
+        },
+      });
+    };
+    errorScan = () => {
+      message.error({
+        content: "Ha habido un problema a la hora de escanear el QR",
+        style: {
+          fontSize: "3em",
+        },
+      });
+    };
+
+    setUserInformation = (data: any) => {
+      setUserData(data);
+      setMenuData("");
+      setMenuDataSoap("");
+      SoapCallLogin(
+        informationSplit[3],
+        informationSplit[4],
+        "http://namespace.aramark.es/"
+      );
+    };
+
+    setMenuInformation = (data: any) => {
+      setMenuData(data);
+      SoapCallGetMenu(
+        menuDataSplit[0],
+        tokenData,
+        "http://namespace.aramark.es/"
+      );
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlData, "text/xml");
+      var oSerializer = new XMLSerializer();
+      const SerializeXML = oSerializer.serializeToString(
+        xml.getElementsByTagName("MenuPorCama")[0]
+      );
+
+      parseString(SerializeXML, function (err: any, result: any) {
+        setMenuDataSoap(result);
+      });
     };
 
     handleScan = (data: any) => {
       if (data !== null) {
-        this.getMenu(JSON.parse(data).id);
-        setDelay(false);
+        data.split("|").length === 5
+          ? this.setUserInformation(data)
+          : userData === ""
+          ? this.errorUser()
+          : this.setMenuInformation(data);
       }
     };
+
     handleError = (err: any) => {
       console.error(err);
+      this.errorScan();
     };
+
     render() {
-      const previewStyle = {
-        height: 400,
-        width: 400,
+      const previewStyleUser = {
+        height: "30em",
+        width: "30em",
         display: "flex",
         justifyContent: "center",
       };
-
-      const camStyle = {
-        display: "flex",
-        justifyContent: "center",
+      const previewStyleMenu = {
+        height: "10em",
+        width: "10em",
       };
 
       return (
-        delay && (
-          <div style={camStyle}>
-            <QrReader
-              delay={delay ? 1500 : false}
-              onError={this.handleError}
-              onScan={this.handleScan}
-              style={previewStyle}
-              facingMode={changeCamera ? "user" : "environment"}
-            />
-          </div>
-        )
+        <div>
+          <QrReader
+            onError={this.handleError}
+            onScan={this.handleScan}
+            // style={previewStyleUser}
+            style={
+              Object.keys(menuDataSoap).length === 0
+                ? previewStyleUser
+                : previewStyleMenu
+            }
+            // facingMode={changeCamera ? "user" : "environment"}
+          />
+        </div>
       );
     }
   }
 
-  const QrPrueba = {
-    menu: "Pure de Calabacín",
-    id: "2",
-    hc: "223291",
-    date: "28/04/2021 - Comida",
-    extra: [
-      {
-        title: "Otros platos",
-        description: "Estofado de ternera con verduras",
-      },
-      {
-        title: "Alergias y observaciones",
-        description: "No pescado",
-      },
-    ],
-  };
-
   return (
     <>
-      <Col span={24}>
-        <QrContainer />
-      </Col>
+      <QrContainer />
     </>
   );
 };

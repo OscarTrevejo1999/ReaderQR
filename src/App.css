@@ -3,6 +3,31 @@
   overflow-x: hidden;
   background-color: #9b2d2d;
 }
+.Padding {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.Card {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+
+.CardObservaciones {
+  font-size: 2em;
+  font-weight: 700;
+  min-height: 8em;
+  margin-top: 0.5em;
+  background-color: #e6e6e6;
+}
+.CardAlergias {
+  font-size: 2em;
+  font-weight: 700;
+  min-height: 8em;
+  margin-top: 0.5em;
+  background-color: #d4d4d4;
+}
 
 .App-logo {
   height: 40vmin;

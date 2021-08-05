@@ -1,25 +1,24 @@
 import { atom } from "recoil";
 
-export const menuAtom = atom({
-  key: "menuAtom", // unique ID (with respect to other atoms/selectors)
-  default: {
-    menu: "",
-    id: "",
-    hc: "",
-    date: "",
-    extra: [{}],
-  }, // default value (aka initial value)
+export const menu = atom({
+  key: "menu", // unique ID (with respect to other atoms/selectors)
+  default: "", // default value (aka initial value)
+});
+export const menuSoapCall = atom({
+  key: "menuSoapCall", // unique ID (with respect to other atoms/selectors)
+  default: {}, // default value (aka initial value)
+});
+export const idPlato = atom({
+  key: "idPlato", // unique ID (with respect to other atoms/selectors)
+  default: "", // default value (aka initial value)
+});
+export const token = atom({
+  key: "token", // unique ID (with respect to other atoms/selectors)
+  default: 0, // default value (aka initial value)
 });
 
-export const qrCode = atom({
-  key: "qrCode", // unique ID (with respect to other atoms/selectors)
-  default: "", // default value (aka initial value)
-});
-export const centerSelected = atom({
-  key: "centerSelected", // unique ID (with respect to other atoms/selectors)
-  default: "", // default value (aka initial value)
-});
-export const positionSelected = atom({
-  key: "positionSelected", // unique ID (with respect to other atoms/selectors)
+export const user = atom({
+  key: "user", // unique ID (with respect to other atoms/selectors)
+  // default: "", // default value (aka initial value)
   default: "", // default value (aka initial value)
 });
